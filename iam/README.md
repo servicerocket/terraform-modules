@@ -11,13 +11,16 @@ Add the following modules to your `*.tf` file.
 ```
 module "iam-basic" {
   source = ".modules/iam/v3/iam-basic"
-  path_switch_role_with_saml_policy = ".modules/iam/v3/switch-role-with-saml-policy.json"
+  json_switch_role_policy = templatefile("../.modules/v3/switch-role-with-saml-policy.json", {
+    aws_account_id = data.aws_caller_identity.current.account_id
+  })
 }
 
 module "iam-audit" {
   source = ".modules/iam/v3/iam-audit"
-  path_switch_role_policy = ".modules/iam/v3/switch-role-policy.json"
-  path_switch_role_with_saml_policy = ".modules/iam/v3/switch-role-with-saml-policy.json"
+  json_switch_role_policy = templatefile("../.modules/v3/switch-role-with-saml-policy.json", {
+    aws_account_id = data.aws_caller_identity.current.account_id
+  })
 }
 
 ...
