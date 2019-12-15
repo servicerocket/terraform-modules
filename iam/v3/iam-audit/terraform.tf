@@ -1,19 +1,20 @@
 # v3/iam-audit
 
-variable "path_switch_role_policy" { default = "../switch-role-policy.json" }
-variable "path_switch_role_with_saml_policy" { default = "../switch-role-with-saml-policy.json" }
+variable "json_switch_role_policy" {}
 
 output "aws_iam_role_auditor_id" { value = aws_iam_role.auditor.id }
 output "aws_iam_role_finance_auditor_id" { value = aws_iam_role.finance_auditor.id }
 
+## Roles & Role Policies
+
 resource "aws_iam_role" "auditor" {
   name = "Auditor"
-  assume_role_policy = file(var.path_switch_role_with_saml_policy)
+  assume_role_policy = var.json_switch_role_policy
 }
 
 resource "aws_iam_role" "finance_auditor" {
   name = "FinanceAuditor"
-  assume_role_policy = file(var.path_switch_role_with_saml_policy)
+  assume_role_policy = var.json_switch_role_policy
 }
 
 resource "aws_iam_policy" "finance_auditor" {
