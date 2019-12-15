@@ -4,14 +4,14 @@
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::***REMOVED***:root"
+        "AWS": "arn:aws:iam::${aws_parent_account_id}:root"
       },
       "Action": "sts:AssumeRole"
     },
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::***REMOVED***:saml-provider/Okta"
+        "Federated": "arn:aws:iam::${aws_account_id}:saml-provider/Okta"
       },
       "Action": "sts:AssumeRoleWithSAML",
       "Condition": {
