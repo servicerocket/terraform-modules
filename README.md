@@ -12,7 +12,7 @@ Add as Git submodule to your repository, e.g.
 
 ```
 git submodule add git@github.com:servicerocket/terraform-modules.git .modules/svrkt-terraform
-Cloning into '/mnt/c/Users/yclian/Development/git-codecommit.us-west-2.amazonaws.com/***REMOVED***/.modules/svrkt-terraform'...
+Cloning into '/path/to/repo/.modules/svrkt-terraform'...
 ```
 
 See further instructions in each subdirectory, e.g. [iam/README.md](./iam/README.md).

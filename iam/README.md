@@ -39,5 +39,5 @@ If a resource already exists, you might hit into conflicts if you proceed. Preve
 For example:
 
     terraform import module.iam-idp-okta.aws_iam_user.okta okta.bot
-    terraform import  aws_iam_saml_provider.okta arn:aws:iam::***REMOVED***:saml-provider/Okta
+    terraform import  aws_iam_saml_provider.okta arn:aws:iam::<aws_account_id>:saml-provider/Okta
 
