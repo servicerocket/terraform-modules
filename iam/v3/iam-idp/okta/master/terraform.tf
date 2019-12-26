@@ -7,7 +7,7 @@ resource "aws_iam_user" "okta" {
   path = "/bots/"
 }
 
-resource "aws_iam_user_policy" "okta_master_policy" {
+resource "aws_iam_user_policy" "okta_master" {
   user = aws_iam_user.okta.name
   policy = <<EOF
 {

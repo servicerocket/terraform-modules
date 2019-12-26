@@ -45,6 +45,6 @@ resource "aws_iam_role_policy_attachment" "developer" {
 }
 
 resource "aws_iam_role_policy_attachment" "git_for_developer" {
-  role =aws_iam_role.developer.id
+  role = aws_iam_role.developer.id
   policy_arn = "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess"
 }
