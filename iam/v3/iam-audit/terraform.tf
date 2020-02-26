@@ -2,8 +2,8 @@
 
 variable "json_switch_role_policy" {}
 
-output "aws_iam_role_auditor_id" { value = aws_iam_role.auditor.id }
-output "aws_iam_role_finance_auditor_id" { value = aws_iam_role.finance_auditor.id }
+output "aws_iam_role_auditor" { value = aws_iam_role.auditor.id }
+output "aws_iam_role_finance_auditor" { value = aws_iam_role.finance_auditor.id }
 
 ## Roles & Role Policies
 
