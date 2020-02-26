@@ -45,7 +45,7 @@ resource "aws_iam_role_policy_attachment" "billing_for_finance" {
 
 resource "aws_iam_role_policy_attachment" "billing_ec2reports_for_finance" {
   role = aws_iam_role.finance_auditor.id
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"
 }
 
 resource "aws_iam_role_policy_attachment" "auditor" {

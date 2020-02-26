@@ -78,7 +78,7 @@ resource "aws_iam_role_policy_attachment" "billing_for_administrator" {
 
 resource "aws_iam_role_policy_attachment" "billing_ec2reports_for_administrator" {
   role = aws_iam_role.administrator.id
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReportsAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"
 }
 
 resource "aws_iam_role_policy_attachment" "power_user" {
