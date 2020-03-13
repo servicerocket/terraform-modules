@@ -76,8 +76,18 @@ resource "aws_iam_role_policy_attachment" "billing_for_administrator" {
   policy_arn = "arn:aws:iam::aws:policy/job-function/Billing"
 }
 
-resource "aws_iam_role_policy_attachment" "billing_ec2reports_for_administrator" {
+resource "aws_iam_role_policy_attachment" "usage_report_for_administrator" {
   role = aws_iam_role.administrator.id
+  policy_arn = "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "billing_for_manager" {
+  role = aws_iam_role.manager.id
+  policy_arn = "arn:aws:iam::aws:policy/job-function/Billing"
+}
+
+resource "aws_iam_role_policy_attachment" "usage_report_for_manager" {
+  role = aws_iam_role.manager.id
   policy_arn = "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"
 }
 
