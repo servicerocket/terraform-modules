@@ -1,6 +1,5 @@
 # v3/iam-idp/google
 
-variable "aws_parent_account_id" {}
 variable "path_saml_metadata" { default = "./saml.xml" }
 
 
