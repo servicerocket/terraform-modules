@@ -32,6 +32,11 @@ resource "aws_iam_group_policy_attachment" "git_for_developers" {
   policy_arn = "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess"
 }
 
+resource "aws_iam_group_policy_attachment" "ssh_for_developers" {
+  group = aws_iam_group.developers.id
+  policy_arn = "arn:aws:iam::aws:policy/IAMUserSSHKeys"
+}
+
 ## Roles & Role Policies
 
 resource "aws_iam_role" "developer" {
@@ -47,4 +52,9 @@ resource "aws_iam_role_policy_attachment" "developer" {
 resource "aws_iam_role_policy_attachment" "git_for_developer" {
   role = aws_iam_role.developer.id
   policy_arn = "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "https_git_for_developer" {
+  role = aws_iam_role.developer.id
+  policy_arn = "arn:aws:iam::aws:policy/IAMSelfManageServiceSpecificCredentials"
 }

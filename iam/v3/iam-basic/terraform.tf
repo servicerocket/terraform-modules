@@ -44,6 +44,11 @@ resource "aws_iam_group_policy_attachment" "users" {
   policy_arn = "arn:aws:iam::aws:policy/job-function/SupportUser"
 }
 
+resource "aws_iam_group_policy_attachment" "password_control_for_users" {
+  group = aws_iam_group.users.id
+  policy_arn = "arn:aws:iam::aws:policy/IAMUserChangePassword"
+}
+
 ## Roles & Role Policies
 
 resource "aws_iam_role" "administrator" {
@@ -60,7 +65,7 @@ resource "aws_iam_role" "manager" {
   name = "Manager"
   assume_role_policy = var.json_switch_role_policy
 }
-
+  
 resource "aws_iam_role" "member" {
   name = "Member"
   assume_role_policy = var.json_switch_role_policy
