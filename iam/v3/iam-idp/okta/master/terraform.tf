@@ -30,12 +30,12 @@ resource "aws_iam_user_policy" "okta_master" {
 EOF
 }
 
-resource "aws_iam_group_membership" "bots" {
-  name = "bots"
-  users = [
-    aws_iam_user.okta.name
+resource "aws_iam_user_group_membership" "example1" {
+  user = aws_iam_user.okta.name
+
+  groups = [
+    "Bots"
   ]
-  group = "Bots"
 }
 
 resource "aws_iam_saml_provider" "okta" {
