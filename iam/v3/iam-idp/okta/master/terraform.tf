@@ -30,7 +30,7 @@ resource "aws_iam_user_policy" "okta_master" {
 EOF
 }
 
-resource "aws_iam_user_group_membership" "example1" {
+resource "aws_iam_user_group_membership" "okta" {
   user = aws_iam_user.okta.name
 
   groups = [
